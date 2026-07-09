@@ -1,0 +1,9 @@
+{
+  "pid": 30184,
+  "port": 16587,
+  "token": "0d658153-aa2b-4e61-8a72-e57b69a0077b",
+  "startedAt": "2026-07-09T18:54:13.657Z",
+  "serverPath": "/Users/joeortega/.claude/skills/gstack/browse/src/server.ts",
+  "mode": "launched",
+  "configHash": "303a7eeccc03078b"
+}
