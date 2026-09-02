@@ -1,32 +1,26 @@
 // EDIT ME: Hope's living events calendar. Add/remove/edit one entry — nothing else changes.
 // Dated event: set dateISO "YYYY-MM-DD" (Pacific) + regUrl. Cycle event: set cycleWindow, omit dateISO.
+// Prices: never type a dollar figure here. Write a slot like {rebuild} and it is
+// filled from prices.js, which is the one place prices are edited.
 window.OH_EVENTS = [
   {
-    name: "Break the Spell",
-    dateISO: "2026-08-08",
-    meta: "Saturday, August 8 · 11 AM–1 PM · Prodigy Fitness · 6689 Owens Dr., Suite 300, Pleasanton, CA 94588",
-    buttonLabel: "Save my seat",
-    regUrl: "https://form.jotform.com/261404619331047"
-  },
-  {
-    name: "Reset & Realign",
-    cycleWindow: "Next cycle begins this fall (Workshop 1)",
-    meta: "Included with the Full Series pass",
-    buttonLabel: "Get the Full Series pass",
-    regUrl: "https://form.jotform.com/261404619331047"
-  },
-  {
-    name: "Fear vs. Intuition",
-    cycleWindow: "This fall cycle",
-    meta: "Included with the Full Series pass",
-    buttonLabel: "Get the Full Series pass",
-    regUrl: "https://form.jotform.com/261404619331047"
-  },
-  {
-    name: "Boundaries & Becoming",
-    cycleWindow: "This fall cycle",
-    meta: "Included with the Full Series pass",
-    buttonLabel: "Get the Full Series pass",
-    regUrl: "https://form.jotform.com/261404619331047"
+    // The paid next step after the free Built To Break keynote.
+    // Oct 25 2026 is TENTATIVE — Hope is holding the date and has explicitly
+    // asked that registration and checkout stay off until she confirms
+    // (email 2026-08-27). So the date shows, but there is still no regUrl and
+    // this row renders as plain text rather than a button.
+    // To go live once she green-lights: set regUrl to the GHL payment link for
+    // product 6a91c02f0dacdd65b5790c1b and buttonLabel: "Save my seat — {rebuild}".
+    name: "The Rebuild",
+    dateISO: "2026-10-25",
+    meta: "Saturday, October 25 · Two hours · {rebuild} · Date to be confirmed",
+    buttonLabel: "Registration opens soon"
   }
+  // Next Built To Break keynote — uncomment and fill in when a date is booked:
+  // ,{
+  //   name: "Built To Break",
+  //   dateISO: "2026-MM-DD",
+  //   meta: "Day, Month D · TIME · Venue · Address",
+  //   buttonLabel: "Free to attend"
+  // }
 ];

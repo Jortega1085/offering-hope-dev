@@ -15,6 +15,19 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 140px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Skip link — visually hidden until focused, then jumps above the fixed header */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+.skip-link:focus {
+  left: 16px; top: 16px; width: auto; height: auto; clip: auto; clip-path: none;
+  z-index: 1000; background: var(--ink); color: var(--paper); padding: 12px 20px;
+  border-radius: 2px; font-family: var(--sans); font-size: 13px; letter-spacing: 0.06em;
+  text-decoration: none;
+}
 body {
   background: var(--paper); color: var(--ink);
   font-family: var(--sans); font-weight: 300; font-size: 16px; line-height: 1.6;
@@ -88,7 +101,7 @@ section.block { margin-top: 68px; position: relative; }
 .card { background: rgba(251, 248, 241, 0.9); padding: 28px 24px; text-decoration: none; color: inherit; display: block; transition: background .18s; }
 a.card:hover { background: var(--cream); }
 .card .card-kicker { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--gold); margin-bottom: 12px; }
-.card h4 { font-family: var(--serif); font-size: 22px; font-weight: 500; margin-bottom: 10px; line-height: 1.15; }
+.card h3, .card h4 { font-family: var(--serif); font-size: 22px; font-weight: 500; margin-bottom: 10px; line-height: 1.15; }
 .card p { font-family: var(--serif); font-size: 16px; line-height: 1.55; color: var(--ink-soft); }
 @media (max-width: 600px) { .cards { grid-template-columns: 1fr; } }
 
@@ -99,6 +112,7 @@ a.card:hover { background: var(--cream); }
 .event-row .ev-name { font-family: var(--serif); font-size: 20px; font-weight: 500; }
 .event-row .ev-meta { font-family: var(--sans); font-size: 13px; color: var(--ink-soft); flex: 1 1 240px; }
 .event-row .ev-cta { margin-left: auto; }
+.event-row .ev-note-inline { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: var(--gold); }
 .events-note { font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--ink-soft); margin-top: 14px; }
 
 /* Pricing cards */
@@ -125,11 +139,20 @@ a.card:hover { background: var(--cream); }
 .field { margin-bottom: 16px; }
 .field label { display: block; font-family: var(--sans); font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 7px; }
 .field input, .field select, .field textarea { width: 100%; padding: 13px 14px; border: 1px solid var(--line); background: rgba(255,255,255,0.85); font-family: var(--sans); font-size: 16px; color: var(--ink); border-radius: 2px; -webkit-appearance: none; appearance: none; }
+/* Restore a caret on native-appearance-stripped selects */
+.field select {
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%232f2a25' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
 .field textarea { resize: vertical; min-height: 110px; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; background: #fff; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(184,150,46,0.14); }
 .field.has-error input, .field.has-error select { border-color: #b94545; }
 .field-error { color: #b94545; font-size: 12px; margin-top: 5px; display: none; }
 .field.has-error .field-error { display: block; }
+.form-error-msg { color: #b94545; font-family: var(--sans); font-size: 14px; text-align: center; margin-top: 12px; }
+.form-error-msg:empty { margin-top: 0; }
 .form-success { display: none; text-align: center; padding: 24px 0; }
 .form-wrap.submitted form { display: none; }
 .form-wrap.submitted .form-success { display: block; }
@@ -177,3 +200,93 @@ body.aho::before { opacity:0.08; } /* dial the sitewide lotus back on Aho */
 .aho-product p { font-family:var(--serif); font-size:17px; color:var(--ink-soft); line-height:1.6; }
 .aho-where a { color:var(--aho-green); text-decoration:underline; text-underline-offset:3px; }
 .aho-disclaimer { font-family:var(--sans); font-size:11px; line-height:1.6; color:var(--muted); border-top:1px solid rgba(32,57,44,0.25); margin-top:40px; padding-top:20px; }
+
+/* ---------- Long Live Hope ---------- */
+/* Eight nav items no longer fit the 920px header on one line. Measured on main
+   before this page existed, the seven-item nav already ran past the right edge
+   between 761px and 800px and broke labels mid-word. Wrap between links instead
+   of inside them: the row splits cleanly, nothing is clipped or hyphenated, and
+   the masthead keeps exactly the same height (the 56px logo still sets it).
+   Scoped above the mobile breakpoint so the stacked mobile nav keeps gap:0. */
+@media (min-width: 761px) {
+  .site-nav { flex-wrap: wrap; justify-content: flex-end; row-gap: 6px; column-gap: 18px; }
+  .site-nav a { white-space: nowrap; }
+}
+
+/* Same grid as .outcomes, but as a real list. The bullet is the gold dot. */
+ul.outcomes { list-style: none; }
+
+/* Two-up variant of the .cards grid (the base grid is the three-doors layout). */
+.cards-2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 600px) { .cards-2 { grid-template-columns: 1fr; } }
+
+/* Checkout that isn't wired yet. It has to read as dead on sight, so nobody
+   clicks a button that goes nowhere. aria-disabled rather than disabled, so it
+   stays focusable and its explanation is reachable by keyboard and screen reader. */
+.btn[aria-disabled="true"] { background: none; color: var(--muted); border-color: var(--line); border-style: dashed; cursor: not-allowed; }
+.btn[aria-disabled="true"]:hover { background: none; border-color: var(--line); }
+.btn[aria-disabled="true"]:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 3px; }
+.checkout-note { font-family: var(--sans); font-size: 14px; line-height: 1.6; color: var(--ink-soft); max-width: 48ch; margin: 14px auto 0; }
+.checkout-note a { color: var(--gold-deep); text-underline-offset: 3px; }
+.checkout-note a:hover { color: var(--ink); }
+
+.closing-line { position: relative; z-index: 1; font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--gold-deep); text-align: center; margin-top: 60px; }
+
+/* ---------- Focus ----------
+   The only visible focus ring on the site used to be the browser default, and
+   on .btn that default is a black outline drawn against a near-black button —
+   effectively invisible. One gold ring for every interactive element instead. */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 3px; border-radius: 2px; }
+
+/* ---------- Ways to work with me ----------
+   One section, written in ways-to-work.js, shown on index, about and coaching.
+   Ordered lightest to deepest and drawn as a path: a hairline that deepens from
+   line-gold to gold as it descends, with a diamond node at each door. No
+   numbers, no step markers — it is an open door, not a checklist. */
+.way-path { list-style: none; margin: 0; padding: 0; position: relative; }
+.way-path::before {
+  content: ""; position: absolute; left: 5px; top: 12px; bottom: 14px; width: 1px;
+  background: linear-gradient(to bottom, var(--line-gold), var(--gold));
+}
+.way { position: relative; padding: 0 0 34px 34px; }
+.way:last-child { padding-bottom: 0; }
+.way-node {
+  position: absolute; left: 0; top: 9px; width: 11px; height: 11px;
+  background: var(--paper); border: 1px solid var(--gold);
+  transform: rotate(45deg);
+}
+/* The deepest door on the path reads as the filled one. */
+.way:last-child .way-node { background: var(--gold); }
+.way-title { font-family: var(--serif); font-size: 26px; font-weight: 500; line-height: 1.2; margin-bottom: 8px; }
+.way-title [data-price] { color: var(--gold-deep); }
+.way-body { font-family: var(--serif); font-size: 18px; line-height: 1.6; color: var(--ink-soft); max-width: 60ch; }
+.way-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; margin-top: 10px; }
+.way-actions a {
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-family: var(--sans); font-weight: 500; font-size: 11.5px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  transition: color .18s, border-color .18s;
+}
+.way-actions a:hover { color: var(--gold-deep); border-color: var(--gold-deep); }
+
+/* The speaking ask sits below the path, not on it — a different question. */
+.way-coda { margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--line-gold); }
+.way-coda .way-body { font-style: italic; }
+
+/* Shipped in the HTML, replaced by the path above once ways-to-work.js runs.
+   Left visible if it does not: same doors, same prices, every link live. */
+.way-fallback { list-style: none; margin: 0; padding: 0; }
+.way-fallback li { font-family: var(--serif); font-size: 19px; line-height: 1.6; color: var(--ink-soft); padding: 8px 0 8px 22px; position: relative; }
+.way-fallback li::before { content: ""; position: absolute; left: 0; top: 18px; width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); }
+.way-fallback a { color: var(--gold-deep); text-underline-offset: 3px; }
+
+@media (max-width: 600px) {
+  .way { padding-left: 26px; padding-bottom: 30px; }
+  .way-title { font-size: 23px; }
+  .way-body { font-size: 17px; }
+  .way-actions { gap: 4px 22px; }
+}

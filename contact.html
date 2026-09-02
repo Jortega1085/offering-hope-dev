@@ -5,6 +5,7 @@
 <link rel="canonical" href="https://offeringhope.co/contact.html" />
 <meta name="description" content="Whether it's a seat, a spot, or a stage — start here." />
 <meta charset="utf-8" />
+<meta name="robots" content="noindex,nofollow" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
@@ -25,15 +26,17 @@
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="masthead">
   <div class="masthead-inner">
-    <img src="assets/oh-logo.png" alt="Offering Hope" class="logo" />
+    <img src="assets/oh-logo.png" alt="Offering Hope" class="logo" width="56" height="56" />
     <a href="index.html" class="masthead-brand">Offering Hope</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
     <nav class="site-nav" id="site-nav">
       <a href="index.html">Home</a>
       <a href="workshops.html">Workshops</a>
       <a href="coaching.html">Coaching</a>
+      <a href="long-live-hope.html">Long Live Hope</a>
       <a href="speaking.html">Speaking</a>
       <a href="shop.html">Shop</a>
       <a href="about.html">About</a>
@@ -41,7 +44,7 @@
     </nav>
   </div>
 </header>
-<main class="page">
+<main class="page" id="main">
 <section class="hero">
   <div class="kicker">Contact</div>
   <div class="rule"></div>
@@ -55,12 +58,12 @@
       <div class="field">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" autocomplete="name" required />
-        <div class="field-error">Required.</div>
+        <div class="field-error" role="alert">Required.</div>
       </div>
       <div class="field">
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" autocomplete="email" required />
-        <div class="field-error">Please enter a valid email.</div>
+        <input id="email" name="email" type="email" autocomplete="email" spellcheck="false" required />
+        <div class="field-error" role="alert">Please enter a valid email.</div>
       </div>
       <div class="field">
         <label for="reason">What are you reaching out about?</label>
@@ -71,18 +74,19 @@
           <option value="Speaking">Speaking</option>
           <option value="Something else">Something else</option>
         </select>
-        <div class="field-error">Required.</div>
+        <div class="field-error" role="alert">Required.</div>
       </div>
       <div class="field">
         <label for="message">Message</label>
         <textarea id="message" name="message" required></textarea>
-        <div class="field-error">Required.</div>
+        <div class="field-error" role="alert">Required.</div>
       </div>
       <div class="cta-row" style="margin-top:8px;">
         <button type="submit" class="btn" id="contactSubmit">Send message</button>
       </div>
+      <p class="form-error-msg" id="contactError" aria-live="polite"></p>
     </form>
-    <div class="form-success">
+    <div class="form-success" aria-live="polite">
       <div class="rule"></div>
       <h3 style="font-size:28px;">Thank you — it's on its way.</h3>
       <p class="prose"><em>I'll be in touch soon.</em></p>
@@ -99,7 +103,7 @@
 <footer class="foot">
   <div class="foot-brand">Offering Hope · Hands of Hope Wellness Center LLC · Hayward, CA</div>
   <div class="foot-nav">
-    <a href="workshops.html">Workshops</a>·<a href="coaching.html">Coaching</a>·<a href="speaking.html">Speaking</a>·<a href="shop.html">Shop</a>·<a href="about.html">About</a>·<a href="free-reset.html">Free Reset</a>·<a href="aho.html">Aho</a>·<a href="contact.html">Contact</a>
+    <a href="workshops.html">Workshops</a>·<a href="coaching.html">Coaching</a>·<a href="long-live-hope.html">Long Live Hope</a>·<a href="speaking.html">Speaking</a>·<a href="shop.html">Shop</a>·<a href="about.html">About</a>·<a href="free-reset.html">The Hope Reset</a>·<a href="aho.html">Aho</a>·<a href="contact.html">Contact</a>
   </div>
   <div class="foot-tag">There's Always Hope.</div>
 </footer>

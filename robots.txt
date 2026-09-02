@@ -1,2 +1,6 @@
+# STAGING — dev.offeringhope.co
+# This is a preview copy of offeringhope.co. It must never be indexed.
+# The live site is https://offeringhope.co and carries its own robots.txt.
+
 User-agent: *
 Disallow: /

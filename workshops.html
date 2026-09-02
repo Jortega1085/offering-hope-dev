@@ -1,10 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Workshops — Break the Spell, Aug 8 | Offering Hope</title>
+<title>Workshops — Built To Break keynote + The Rebuild | Offering Hope</title>
 <link rel="canonical" href="https://offeringhope.co/workshops.html" />
-<meta name="description" content="Live nervous-system workshops in the East Bay. Next: Break the Spell, August 8, Pleasanton." />
+<!-- price: rebuild ($30) appears in the meta description below and in the
+     JSON-LD offer further down. Both are read out of the raw HTML by search
+     engines, so JavaScript cannot fill them — change the price in prices.js
+     and change these two by hand. -->
+<meta name="description" content="Live nervous-system workshops in the East Bay with Hope Kimple. The free Built To Break keynote, and The Rebuild — two hours, $30." />
 <meta charset="utf-8" />
+<meta name="robots" content="noindex,nofollow" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
@@ -15,25 +20,30 @@
 <link rel="stylesheet" href="styles.css" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Offering Hope" />
-<meta property="og:title" content="Break the Spell — August 8 · Offering Hope" />
-<meta property="og:description" content="A live nervous-system workshop in Pleasanton. Save your seat." />
+<meta property="og:title" content="Workshops — Built To Break + The Rebuild · Offering Hope" />
+<meta property="og:description" content="One hour. No circle, no sharing. Just the science of why the body holds what the mind won't say. The keynote is free; The Rebuild is the next step." />
 <meta property="og:url" content="https://offeringhope.co/workshops.html" />
 <meta property="og:image" content="https://offeringhope.co/assets/og-image.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
+<!-- Event schema removed 2026-08-25: the Aug 8 keynote is past, and Event markup
+     requires a real startDate. Re-add it (startDate, endDate, location, offers)
+     when the next keynote or The Rebuild gets a booked date. -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Event","name":"Break the Spell — a nervous system workshop with Hope Kimple","startDate":"2026-08-08T11:00:00-07:00","endDate":"2026-08-08T13:00:00-07:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","description":"In two hours, name the agreement quietly running your life and start writing a new one. You leave with a workbook, the tools to keep going, and a room of people who get it.","location":{"@type":"Place","name":"Prodigy Fitness","address":{"@type":"PostalAddress","streetAddress":"6689 Owens Dr., Suite 300","addressLocality":"Pleasanton","addressRegion":"CA","postalCode":"94588","addressCountry":"US"}},"organizer":{"@type":"Organization","name":"Offering Hope","url":"https://offeringhope.co/"},"performer":{"@type":"Person","name":"Hope Kimple"},"offers":[{"@type":"Offer","name":"Sliding scale","price":"67","priceCurrency":"USD","url":"https://form.jotform.com/261404619331047","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Standard seat","price":"97","priceCurrency":"USD","url":"https://form.jotform.com/261404619331047","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Supporter seat","price":"147","priceCurrency":"USD","url":"https://form.jotform.com/261404619331047"},{"@type":"Offer","name":"Buddy pass","price":"194","priceCurrency":"USD","url":"https://form.jotform.com/261404619331047"},{"@type":"Offer","name":"Full Series pass","price":"497","priceCurrency":"USD","url":"https://form.jotform.com/261404619331047"}]}
+{"@context":"https://schema.org","@type":"Service","name":"Nervous system workshops with Hope Kimple","serviceType":"Workshop","provider":{"@type":"Organization","name":"Offering Hope","url":"https://offeringhope.co/"},"description":"Live nervous-system workshops in the East Bay. The Built To Break keynote is free to attend. The Rebuild is a two-hour paid workshop and the next step after the keynote.","areaServed":[{"@type":"AdministrativeArea","name":"East Bay"},{"@type":"AdministrativeArea","name":"San Francisco Bay Area"}],"offers":{"@type":"Offer","name":"The Rebuild","price":"30","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://offeringhope.co/workshops.html"}}
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="masthead">
   <div class="masthead-inner">
-    <img src="assets/oh-logo.png" alt="Offering Hope" class="logo" />
+    <img src="assets/oh-logo.png" alt="Offering Hope" class="logo" width="56" height="56" />
     <a href="index.html" class="masthead-brand">Offering Hope</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">☰</button>
     <nav class="site-nav" id="site-nav">
       <a href="index.html">Home</a>
       <a href="workshops.html" aria-current="page">Workshops</a>
       <a href="coaching.html">Coaching</a>
+      <a href="long-live-hope.html">Long Live Hope</a>
       <a href="speaking.html">Speaking</a>
       <a href="shop.html">Shop</a>
       <a href="about.html">About</a>
@@ -41,58 +51,56 @@
     </nav>
   </div>
 </header>
-<main class="page">
+<main class="page" id="main">
 
 <section class="block" id="upcoming" style="margin-top:0;">
   <div class="sec-label">Upcoming events</div>
   <div class="events" id="events-list"></div>
-  <p class="events-note">The workshops run in cycles, so you never miss one. Get the Full Series pass and attend all four as they come around — or join the list for dates.</p>
+  <p class="events-note">The next workshop is The Rebuild, and we're holding Saturday, October 25. Registration opens once the date is confirmed — <a href="contact.html">get on the list</a> and you'll hear first.</p>
 </section>
 
-<section class="block">
+<section class="block" id="built-to-break">
   <div class="sec-label">Featured</div>
   <div class="hero" style="margin-bottom:24px;">
-    <h1>Break the <em>Spell</em></h1>
-    <p class="lede">Saturday, August 8 · 11 AM–1 PM<br />Prodigy Fitness · 6689 Owens Dr., Suite 300, Pleasanton, CA 94588</p>
+    <h1>Built To <em>Break</em></h1>
+    <p class="lede">One hour · Free to attend · Next date coming soon</p>
   </div>
   <div class="prose">
-    <p>At some point, you made agreements about who you are. What you're worth. What strength is allowed to feel like. You didn't sign them on purpose — and most of them are still running your life today, quietly, from the driver's seat.</p>
-    <p>In two hours, we name the agreement that's steering you now, and we start writing a new one. Not the version that kept you small — the one that moves you forward. You leave with a workbook, the tools to keep going, and a room of people who get it.</p>
+    <p>What you're carrying isn't stress. It isn't random. It's a message — what your body carries and what your mind won't say.</p>
+    <p>One hour. No circle, no sharing. Just the science of why the body holds what the mind won't say, and tools to start letting it go.</p>
   </div>
 </section>
 
 <section class="block">
-  <div class="sec-label">Reserve your seat</div>
-  <!-- EARLY-BIRD BANNER — DELETE THIS ENTIRE DIV AFTER JULY 11 -->
-  <div class="earlybird">Early bird: use code <strong>earlybird</strong> for $20 off — expires July 11.</div>
-  <!-- END EARLY-BIRD BANNER -->
-  <div class="tiers">
-    <div class="tier"><div class="t-name">Sliding scale</div><div class="t-price">$67</div><div class="t-note">"Money shouldn't be the reason you don't come."</div></div>
-    <div class="tier featured"><div class="t-name">Standard seat</div><div class="t-price">$97</div><div class="t-note">The workshop + workbook</div></div>
-    <div class="tier"><div class="t-name">Supporter seat</div><div class="t-price">$147</div><div class="t-note">Your seat covers part of someone else's</div></div>
-    <div class="tier"><div class="t-name">Buddy pass</div><div class="t-price">$194</div><div class="t-note">Two seats — bring someone who needs this</div></div>
-    <div class="tier"><div class="t-name">Full Series pass</div><div class="t-price">$497</div><div class="t-note">All four workshops + workbooks · attend any cycle, anytime</div></div>
+  <div class="sec-label">Free to attend</div>
+  <div class="prose">
+    <p>No ticket, no registration. Come as you are, bring someone who needs to hear it.</p>
+  </div>
+</section>
+
+<section class="block" id="the-rebuild">
+  <div class="sec-label">The next step</div>
+  <div class="hero" style="margin-bottom:24px;">
+    <h1>The <em>Rebuild</em></h1>
+    <p class="lede">Saturday, October 25 · Two hours · <span data-price="rebuild">$30</span></p>
+  </div>
+  <div class="prose">
+    <p>You can look good on paper and still feel like something's off. Still stuck. Still running on empty and calling it fine. The Rebuild is two hours of recovery. We build the map: where you are now, and the way forward. We get honest about where you actually are, and where you want to be. We learn to tell fear from intuition, so you can trust your own read again. We clear the old beliefs and quiet agreements running the show. And we find the first real steps toward what's next.</p>
+    <p>This isn't about digging up where it all started. It's about what's driving you right now, and where you're headed next. Two hours. Come as you are. Leave lighter. There's always Hope.</p>
+    <p>We're holding Saturday, October 25. Registration opens once the date is confirmed. Get on the list and you'll be the first to know.</p>
+  </div>
+  <div class="cta-row" style="margin-top:24px;justify-content:center;">
+    <a href="contact.html" class="btn">Tell me when it's scheduled</a>
+  </div>
+</section>
+
+<section class="block">
+  <div class="sec-label">After the workshop</div>
+  <div class="prose">
+    <p>The change doesn't happen in two hours. It happens in the weeks after. <a href="long-live-hope.html">Long Live Hope</a> is the monthly group coaching membership where that work keeps going — two live calls a month, and a room to bring the old patterns to when they come back knocking.</p>
   </div>
   <div class="cta-row" style="margin-top:24px;">
-    <a href="https://form.jotform.com/261404619331047" class="btn">Save my seat</a>
-    <a href="https://form.jotform.com/261404619331047" class="btn-secondary">Get the Full Series pass</a>
-  </div>
-</section>
-
-<section class="block">
-  <div class="sec-label">The series</div>
-  <div class="hero" style="margin-bottom:24px;">
-    <h1>Four workshops. <em>One rebuild.</em></h1>
-    <p class="lede">Each one stands alone. Together, they rebuild your foundation.</p>
-  </div>
-  <div class="cards" style="grid-template-columns:repeat(2,1fr);">
-    <div class="card"><h4>Reset &amp; Realign</h4><p>Map your life honestly. Leave with a plan small enough to actually start tomorrow.</p></div>
-    <div class="card"><h4>Fear vs. Intuition</h4><p>Fear and your gut feel almost identical in the body. Learn to tell them apart — and trust what you hear.</p></div>
-    <div class="card"><h4>Break the Spell</h4><p>Find the agreement running your life. Start rewriting it.</p></div>
-    <div class="card"><h4>Boundaries &amp; Becoming</h4><p>Everything lands in real life. Boundaries, not walls — and the tools to hold them when your alarm system fires.</p></div>
-  </div>
-  <div class="prose" style="margin-top:24px;text-align:center;">
-    <p>The series runs in cycles all year. The Full Series pass — <em>$497</em> — is your seat at all four, every time they come around. Come once. Come again when it hits different.</p>
+    <a href="long-live-hope.html" class="btn">See Long Live Hope</a>
   </div>
 </section>
 
@@ -100,10 +108,11 @@
 <footer class="foot">
   <div class="foot-brand">Offering Hope · Hands of Hope Wellness Center LLC · Hayward, CA</div>
   <div class="foot-nav">
-    <a href="workshops.html">Workshops</a>·<a href="coaching.html">Coaching</a>·<a href="speaking.html">Speaking</a>·<a href="shop.html">Shop</a>·<a href="about.html">About</a>·<a href="free-reset.html">Free Reset</a>·<a href="aho.html">Aho</a>·<a href="contact.html">Contact</a>
+    <a href="workshops.html">Workshops</a>·<a href="coaching.html">Coaching</a>·<a href="long-live-hope.html">Long Live Hope</a>·<a href="speaking.html">Speaking</a>·<a href="shop.html">Shop</a>·<a href="about.html">About</a>·<a href="free-reset.html">The Hope Reset</a>·<a href="aho.html">Aho</a>·<a href="contact.html">Contact</a>
   </div>
   <div class="foot-tag">There's Always Hope.</div>
 </footer>
+<script src="prices.js"></script>
 <script src="events.js"></script>
 <script src="main.js"></script>
 </body>
